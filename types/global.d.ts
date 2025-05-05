@@ -2,7 +2,7 @@
 type Context = {
   sargah_number: number;
   sargah_name: string;
-  bait: string;
+  bait: number;
   sanskrit_text: string;
   text: string;
 };
@@ -13,4 +13,10 @@ type Chat = {
   response?: string;
   context?: Context[];
 };
+
+interface String {
+    toTitle(): string;
+  }
+  
+  
 

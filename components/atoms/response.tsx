@@ -1,4 +1,10 @@
-
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+  } from "@/components/ui/tooltip"
+  
 
 export default function Response({ children }: { children: string }) {
     return (

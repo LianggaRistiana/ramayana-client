@@ -7,7 +7,7 @@ interface ContextListProps {
 
 export default function ContextList({ contexts }: ContextListProps) {
     return (
-        <div className="flex flex-wrap gap-2 mb-16">
+        <div className="flex flex-wrap gap-2 mb-4">
             {
                 contexts.map((context, index) => (
                     <ContextItem key={

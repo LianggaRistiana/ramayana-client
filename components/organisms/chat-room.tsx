@@ -2,12 +2,8 @@
 
 import { useChat } from "@/hooks/use-chat";
 import QueryBubble from "../atoms/query-bubble";
-import Response from "../atoms/response";
-
-
 import { useEffect, useRef } from "react";
-import ContextList from "../molecules/context-list";
-import { ChatContext } from "@/context/ChatContext";
+import ResponseGroup from "../molecules/response-group";
 
 export default function ChatRoom() {
     const { chats, addChat, updateChatResponse } = useChat();
@@ -25,17 +21,10 @@ export default function ChatRoom() {
                 <div
                     key={i}
                     ref={i === chats.length - 1 ? lastChatRef : null}
-                    className={i === chats.length - 1 ? "scroll-mt-20" : ""}
+                    className={i === chats.length - 1 ? "scroll-mt-20 mb-16" : "mb-16"}
                 >
                     <QueryBubble>{chat.query}</QueryBubble>
-                    <div>
-
-                        {chat.response && <Response>{chat.response}</Response>}
-                        {
-                            chat.context &&
-                            <ContextList contexts={chat.context}></ContextList>
-                        }
-                    </div>
+                    <ResponseGroup {...chat}></ResponseGroup>
                 </div>
             ))}
         </div>

@@ -15,8 +15,7 @@ type Chat = {
 };
 
 interface String {
-    toTitle(): string;
-  }
-  
+  toTitleCase(): string;
+}
   
 

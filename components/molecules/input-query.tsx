@@ -23,7 +23,7 @@ export default function InputQuery() {
     
 
     return (
-        <div className="px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24 max-w-screen-lg 2xl:max-w-screen-2xl mx-auto py-4 bg-background fixed bottom-4 left-0 right-0">
+        <div className="px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24 max-w-screen-lg 2xl:max-w-screen-2xl mx-auto py-4 bg-background fixed bottom-0 left-0 right-0">
             <div className=" flex justify-between items-center gap-2 px-4 py-4 border rounded-2xl shadow-lg bg-sidebar">
 
                 <Textarea

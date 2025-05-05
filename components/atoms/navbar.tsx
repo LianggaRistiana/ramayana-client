@@ -1,3 +1,4 @@
+import { ModeToggle } from "./mode-toggle";
 
 
 export default function Navbar() {
@@ -8,6 +9,7 @@ export default function Navbar() {
             <p  className="text-xl font-bold text-primary">
                 RAMAYANA CHATBOT
             </p>
+            <ModeToggle></ModeToggle>
             
         </nav>
     );

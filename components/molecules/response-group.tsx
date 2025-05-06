@@ -3,6 +3,7 @@ import CopyButton from "../atoms/copy-button";
 import Response from "../atoms/response";
 import ContextList from "./context-list";
 import { motion, AnimatePresence } from "framer-motion";
+import { SkeletenResponse } from "../atoms/skeleten-response";
 
 
 export default function ResponseGroup({
@@ -18,9 +19,9 @@ export default function ResponseGroup({
             className="relative pb-8"
 
         >
+            { !response && <SkeletenResponse></SkeletenResponse>}
             {response && <Response>{response}</Response>}
             {context && <ContextList contexts={context}></ContextList>}
-            {/* {response && isHover && <CopyButton textToCopy={response}></CopyButton>} */}
             <AnimatePresence>
                 {response && isHover && (
                     <motion.div

@@ -3,9 +3,6 @@
 import ChatRoom from "@/components/organisms/chat-room";
 import InputQuery from "@/components/molecules/input-query";
 
-import Image from "next/image";
-import { createContext, useContext } from "react";
-
 export default function Home() {
   
 

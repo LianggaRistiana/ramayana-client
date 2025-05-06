@@ -1,4 +1,3 @@
-// Tipe detail untuk konteks jawaban
 type Context = {
   sargah_number: number;
   sargah_name: string;
@@ -7,7 +6,6 @@ type Context = {
   text: string;
 };
 
-// Tipe untuk satu chat: query wajib, response & context opsional
 type Chat = {
   query: string;
   response?: string;
@@ -19,3 +17,7 @@ interface String {
 }
   
 
+type ApiResponse = {
+  response: string;
+  context?: Context[];
+};

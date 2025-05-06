@@ -1,4 +1,3 @@
-// Tipe untuk context React
 type ChatContextType = {
   chats: Chat[];
   addChat: (chat: Chat) => void;

@@ -12,7 +12,12 @@ import {
 import CopyButton from "./copy-button";
 
 
+interface ContextItem{
+    title: string
+    contexts: Context[];
+}
 
+// Deprecated
 export default function ContextItem({
     sargah_name,
     sargah_number,
@@ -32,7 +37,7 @@ export default function ContextItem({
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>
-                        {sargah_number}. {sargah_name.toTitleCase()}
+                        {sargah_number}<br></br>{sargah_name.toTitleCase()}
                     </DialogTitle>
                     <DialogDescription>
                         Bait ke-{bait}

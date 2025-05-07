@@ -5,7 +5,7 @@ import { Button } from "../ui/button"
 import { Textarea } from "../ui/textarea"
 import { Send, Loader2 } from "lucide-react";
 import { useChat } from "@/hooks/use-chat";
-import { FakeApiCall } from "@/actions/chat-actions";
+import { processQuery } from "@/actions/chat-actions";
 
 
 
@@ -24,7 +24,7 @@ export default function InputQuery() {
 
       setQuery("");
       try {
-        const result = await FakeApiCall(querySubmited);
+        const result = await processQuery(querySubmited);
         updateChatResponse(index, result.response, result.context);
       } catch (error) {
         updateChatResponse(index, "Ada masalah pada server, coba lagi nanti");

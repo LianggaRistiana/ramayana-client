@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { Copy, Check } from "lucide-react";
 
+
+
 const CopyButton = ({ textToCopy }: { textToCopy: string }) => {
     const [copySuccess, setCopySuccess] = useState(false);
 
@@ -22,7 +24,6 @@ const CopyButton = ({ textToCopy }: { textToCopy: string }) => {
                 onClick={handleCopy}
                 variant={"outline"}
                 size={"icon"}
-                className=""
                 disabled={copySuccess}
             >
                 {copySuccess

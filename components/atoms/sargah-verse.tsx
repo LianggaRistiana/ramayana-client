@@ -26,7 +26,7 @@ export default function SargahVerse({
             <p className="whitespace-pre-line italic mb-2">
                 {sanskrit_text}
             </p>
-            <p>
+            <p className="whitespace-pre-line">
                 {text}
             </p>
 

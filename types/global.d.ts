@@ -4,6 +4,7 @@ type Context = {
   bait: number;
   sanskrit_text: string;
   text: string;
+  is_top_k: Boolean;
 };
 
 type Chat = {

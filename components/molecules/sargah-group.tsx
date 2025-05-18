@@ -33,7 +33,7 @@ export default function SargahGroup({
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>
-                        {title}
+                        {title.toTitleCase()}
                     </DialogTitle>
                 </DialogHeader>
                 <ScrollArea className="h-[500px] pr-4" >

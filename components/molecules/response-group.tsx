@@ -4,6 +4,7 @@ import Response from "../atoms/response";
 import ContextList from "./context-list";
 import { motion, AnimatePresence } from "framer-motion";
 import { SkeletenResponse } from "../atoms/skeleten-response";
+import TopContextList from "./top-context-list";
 
 
 export default function ResponseGroup({
@@ -13,28 +14,30 @@ export default function ResponseGroup({
     const [isHover, setIsHover] = useState(false);
 
     return (
-        <div
-            onMouseEnter={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)}
-            className="relative pb-8"
+        <div>
+            {!response && <SkeletenResponse />}
+            <div
 
-        >
-            { !response && <SkeletenResponse></SkeletenResponse>}
-            {response && <Response>{response}</Response>}
-            {context && <ContextList contexts={context}></ContextList>}
-            <AnimatePresence>
-                {response && isHover && (
-                    <motion.div
-                        className="absolute bottom-0"
-                        initial={{ x: -20, opacity: 0, scale: 0.2 }}
-                        animate={{ x: 0, opacity: 1, scale: 1 }}
-                        exit={{ x: -20, opacity: 0, scale: 0.2 }}
-                        transition={{ duration: 0.2 }}
-                    >
-                        <CopyButton textToCopy={response} />
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                onMouseEnter={() => setIsHover(true)}
+                onMouseLeave={() => setIsHover(false)}
+                className="relative mb-2">
+                {response && <Response>{response}</Response>}
+                <AnimatePresence>
+                    {response && isHover && (
+                        <motion.div
+                            className="absolute top-0 left-0"
+                            initial={{ y: 0, opacity: 0, scale: 0.2 }}
+                            animate={{ y: -30, opacity: 1, scale: 1 }}
+                            exit={{ y: 0, opacity: 0, scale: 0.2 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <CopyButton textToCopy={response} />
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
+            {context?.some(item => item.is_top_k) && <TopContextList contexts={context.filter(item => item.is_top_k)} />}
+            {context && <ContextList contexts={context} />}
         </div>
 
     );

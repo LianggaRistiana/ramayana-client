@@ -15,7 +15,7 @@ export default function ContextList({ contexts }: ContextListProps) {
     }, {});
 
     return (
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-2 mb-4 mt-4">
             {/* {
                 contexts.map((context, index) => (
                     <ContextItem key={

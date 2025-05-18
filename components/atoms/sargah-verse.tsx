@@ -4,6 +4,7 @@ import {
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CopyButton from "./copy-button";
+import PlayButton from "./play-button";
 
 export default function SargahVerse({
     sargah_name,
@@ -28,22 +29,27 @@ export default function SargahVerse({
             <p>
                 {text}
             </p>
-            <AnimatePresence>
+
+            {/* <AnimatePresence>
                 {
                     isHover &&
                     <motion.div
-                        className="absolute bottom-0"
+                        className="absolute bottom-0 right-12 flex gap-2"
                         initial={{ y: -20, opacity: 0, scale: 0.2 }}
                         animate={{ y: 0, opacity: 1, scale: 1 }}
                         exit={{ y: -20, opacity: 0, scale: 0.2 }}
                         transition={{ duration: 0.2 }}
                     >
 
-                        <CopyButton textToCopy={`${sargah_name}, Bait ke-${bait}\n${sanskrit_text}\n\n${text}`}></CopyButton>
+                        <CopyButton textToCopy={`${sargah_name}, Bait ke-${bait}\n${sanskrit_text}\n\n${text}`} />
                     </motion.div>
 
                 }
-            </AnimatePresence>
+            </AnimatePresence> */}
+            <div className="absolute bottom-0 right-0 flex gap-2">
+                <CopyButton textToCopy={`${sargah_name}, Bait ke-${bait}\n${sanskrit_text}\n\n${text}`} />
+                <PlayButton sarggah_number={sargah_number} bait={bait} />
+            </div>
         </div>
     );
 

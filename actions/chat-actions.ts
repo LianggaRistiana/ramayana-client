@@ -3,8 +3,8 @@
 
 export const processQuery = async (
   query: string,
-  top_k: number = 1,
-  context_window: number = 3
+  top_k: number = 3,
+  context_window: number = 10
 ): Promise<ApiResponse> => {
   const res = await fetch(`${process.env.API_URL}/chat`, {
     method: "POST",

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/atoms/navbar";
 import { ChatProvider } from "@/context/ChatContext";
 import { ThemeProvider } from "@/components/provider/theme-provider";
+import { Toaster } from "@/components/ui/sonner"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en"
-    suppressHydrationWarning>
+      suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -37,7 +38,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-        
+
         >
           <ChatProvider>
             <Navbar></Navbar>
@@ -46,6 +47,7 @@ export default function RootLayout({
             </main>
           </ChatProvider>
         </ThemeProvider>
+        <Toaster />
 
       </body>
     </html>

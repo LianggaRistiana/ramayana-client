@@ -4,7 +4,7 @@
 export const processSound = async (
     sargah_number: number,
     bait: number
-): Promise<HTMLAudioElement> => {
+): Promise<string> => {
     const response = await fetch(`${process.env.API_URL}/sound?sargah=${sargah_number}&bait=${bait}`);
 
     if (!response.ok) {
@@ -13,9 +13,8 @@ export const processSound = async (
 
     const blob = await response.blob();
     const audioUrl = URL.createObjectURL(blob);
-    const audio = new Audio(audioUrl);
 
-    return audio; 
+    return audioUrl; 
 };
 
 

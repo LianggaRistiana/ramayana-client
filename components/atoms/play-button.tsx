@@ -1,7 +1,7 @@
 import { Loader2, Play, CircleStop, Square } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
-import { FakeProcessSound } from "@/actions/play-verse-action";
+import { FakeProcessSound, processSound } from "@/actions/play-verse-action";
 import { toast } from "sonner";
 
 export default function PlayButton({
@@ -63,7 +63,8 @@ export default function PlayButton({
         setAudio(null);
       }
 
-      const audioUrl = await FakeProcessSound(sarggah_number, bait);
+      // const audioUrl = await FakeProcessSound(sarggah_number, bait);
+      const audioUrl = await processSound(sarggah_number, bait);
       console.log("Audio URL:", audioUrl);
       const newAudio = new Audio(audioUrl);
       setAudio(newAudio);

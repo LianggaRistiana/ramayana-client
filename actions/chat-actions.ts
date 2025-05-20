@@ -6,7 +6,7 @@ export const processQuery = async (
   top_k: number = 3,
   context_size: number = 10
 ): Promise<ApiResponse> => {
-  const res = await fetch(`${process.env.API_URL}/chat`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/chat`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ query, top_k, context_size }),

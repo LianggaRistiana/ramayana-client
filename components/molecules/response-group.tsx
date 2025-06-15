@@ -5,11 +5,13 @@ import ContextList from "./context-list";
 import { motion, AnimatePresence } from "framer-motion";
 import { SkeletenResponse } from "../atoms/skeleten-response";
 import TopContextList from "./top-context-list";
+import EmbeddingModelText from "../atoms/embedding-model-text";
 
 
 export default function ResponseGroup({
     response,
-    context
+    context,
+    embedding_model
 }: Chat) {
     const [isHover, setIsHover] = useState(false);
 
@@ -21,6 +23,7 @@ export default function ResponseGroup({
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
                 className="relative mb-2">
+                {response && <EmbeddingModelText>{embedding_model}</EmbeddingModelText>}
                 {response && <Response>{response}</Response>}
                 <AnimatePresence>
                     {response && isHover && (
@@ -39,6 +42,5 @@ export default function ResponseGroup({
             {context?.some(item => item.is_top_k) && <TopContextList contexts={context.filter(item => item.is_top_k)} />}
             {context && <ContextList contexts={context} />}
         </div>
-
     );
 }

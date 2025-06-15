@@ -11,6 +11,7 @@ type Chat = {
   query: string;
   response?: string;
   context?: Context[];
+  embedding_model?: number = 1;
 };
 
 interface String {

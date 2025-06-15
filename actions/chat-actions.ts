@@ -1,15 +1,20 @@
 "use server";
 
-
-export const processQuery = async (
-  query: string,
-  top_k: number = 3,
-  context_size: number = 10
-): Promise<ApiResponse> => {
+export const processQuery = async ({
+  query,
+  top_k = 3,
+  context_size = 10,
+  embedding_model = 1,
+}: {
+  query: string;
+  top_k?: number;
+  context_size?: number;
+  embedding_model?: number;
+}): Promise<ApiResponse> => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/chat`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ query, top_k, context_size }),
+    body: JSON.stringify({ query, top_k, context_size, embedding_model }),
   });
 
   if (!res.ok) {
@@ -23,5 +28,3 @@ export const processQuery = async (
     context: data.context,
   };
 };
-
-

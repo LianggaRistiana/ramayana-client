@@ -22,4 +22,5 @@ interface String {
 type ApiResponse = {
   response: string;
   context?: Context[];
+  session_id?: string;
 };

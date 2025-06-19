@@ -28,16 +28,21 @@ export default function InputQuery() {
 
       const querySubmited = query;
       const index = chats.length;
+      const sessionId = localStorage.getItem("session_id") ?? "";
 
       setQuery("");
       try {
         const result = await processQuery(
           {
             query: querySubmited,
-            embedding_model: Number(embeddingModel)
+            embedding_model: Number(embeddingModel),
+            session_id: sessionId,
           }
         );
         updateChatResponse(index, result.response, result.context);
+        if (result.session_id) {
+          localStorage.setItem("session_id", result.session_id);
+        }
       } catch (error) {
         updateChatResponse(index, "Ada masalah pada server, coba lagi nanti");
       } finally {

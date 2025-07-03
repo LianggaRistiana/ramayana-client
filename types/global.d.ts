@@ -5,6 +5,7 @@ type Context = {
   sanskrit_text: string;
   text: string;
   is_top_k: Boolean;
+  is_sound_available: Boolean;
 };
 
 type Chat = {

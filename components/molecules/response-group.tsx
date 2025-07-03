@@ -39,8 +39,8 @@ export default function ResponseGroup({
                     )}
                 </AnimatePresence>
             </div>
-            {context?.some(item => item.is_top_k) && <TopContextList contexts={context.filter(item => item.is_top_k)} />}
-            {context && <ContextList contexts={context} />}
+            {context?.some(item => item.is_top_k) && context[0].sargah_number != 0 && <TopContextList contexts={context.filter(item => item.is_top_k)} />}
+            {context && context[0].sargah_number != 0 && <ContextList contexts={context} />}
         </div>
     );
 }

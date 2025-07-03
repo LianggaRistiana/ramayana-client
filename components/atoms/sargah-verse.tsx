@@ -10,6 +10,7 @@ export default function SargahVerse({
     sargah_name,
     sargah_number,
     sanskrit_text,
+    is_sound_available,
     bait,
     text
 }: Context) {
@@ -47,8 +48,13 @@ export default function SargahVerse({
                 }
             </AnimatePresence> */}
             <div className="absolute bottom-0 right-0 flex gap-2">
+
                 <CopyButton textToCopy={`${sargah_name}, Bait ke-${bait}\n${sanskrit_text}\n\n${text}`} />
-                <PlayButton sarggah_number={sargah_number} bait={bait} />
+                {/* <PlayButton sarggah_number={sargah_number} bait={bait} /> */}
+                {
+                    is_sound_available == true &&
+                    <PlayButton sarggah_number={sargah_number} bait={bait} />
+                }
             </div>
         </div>
     );

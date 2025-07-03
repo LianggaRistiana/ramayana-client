@@ -21,6 +21,16 @@ export default function InputQuery() {
   const [query, setQuery] = useState("");
   const [embeddingModel, setEmbeddingModel] = useState("1");
 
+  // const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  // useEffect(() => {
+  //   const textarea = textareaRef.current;
+  //   if (textarea) {
+  //     textarea.style.height = "auto"; // reset dulu
+  //     textarea.style.height = `${Math.min(textarea.scrollHeight, 96)}px`; // max-h-24 (96px)
+  //   }
+  // }, [query]);
+
   const handleSubmit = async () => {
     if (query.trim()) {
       setIsLoading(true);
@@ -54,14 +64,11 @@ export default function InputQuery() {
 
   return (
     <div className="px-4 py-4 md:px-8 lg:px-12 xl:px-16 2xl:px-24 max-w-screen-lg 2xl:max-w-screen-2xl mx-auto fixed bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent">
-      <div className=" px-4 py-4 border rounded-2xl bg-sidebar">
+      <div className="px-4 py-4 border rounded-2xl bg-sidebar">
         <Textarea
           placeholder="Tulis pertanyaan seputar ramayana"
-          // className="border-none dark:bg-transparent shadow-none focus:ring-0 focus:outline-none focus-visible:ring-0
-          //    resize-none max-h-[200px] overflow-y-auto"
-          className=" border-none dark:bg-transparent shadow-none focus:ring-0 focus:outline-none resize-none focus-visible:ring-0"
+          className="min-h-8 mb-2 border-none dark:bg-transparent shadow-none focus:ring-0 focus:outline-none resize-none focus-visible:ring-0"
           value={query}
-          rows={1}
           onChange={(e) => setQuery(e.target.value)}
         ></Textarea>
         <div className="flex justify-between items-center gap-2">
